@@ -1,0 +1,29 @@
+
+        .bg-section {
+            background-image: url('https://resources.jetbrains.com/storage/products/v/beams/jb-academy/v1.svg');
+            /* 🔹 put your image here */
+            background-size: cover;
+            /* make image cover whole div */
+            background-position: center;
+            /* center the image */
+            background-repeat: no-repeat;
+            height: 100vh;
+            /* full screen height */
+        }
+
+        .left-pannal {
+
+            height: 95vh;
+            width: 250px;
+            position: fixed;
+            background-color: black;
+        }
+        .left-pannal .nav-link {
+             color: white;
+        }
+
+        .contain{
+            width: 80%;
+            margin-left: 20%;
+            padding: 30px;
+        }

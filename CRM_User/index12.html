@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Demo</title>
+</head>
+<body>
+    
+   <button onclick="openpage()">Pay with Razorpay</button>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    function openpage() {
+        var options = {
+            "key": "rzp_test_R7egvn1MnXeKx7", // Test Key ID
+            "amount": "50000", // Amount in paise (50000 = 500 INR)
+            "currency": "INR", // Set to INR
+            "name": "CodeVerse", // 🔥 Your Website/Brand Name
+            "description": "Premium Subscription",
+            "handler": function (response){
+                alert("Payment ID: " + response.razorpay_payment_id);
+                alert("Order ID: " + response.razorpay_order_id);
+                alert("Signature: " + response.razorpay_signature);
+            },
+            "prefill": {
+                "name": "Dipanshu",
+                "email": "dipanshu@example.com",
+                "contact": "9876543210"
+            },
+            "notes": {
+                "address": "Your Office Address"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.on('payment.failed', function (response){
+            alert("Error Code: " + response.error.code);
+            alert("Description: " + response.error.description);
+            alert("Reason: " + response.error.reason);
+        });
+        rzp1.open();
+    }
+</script>
+</body>
+</html>
